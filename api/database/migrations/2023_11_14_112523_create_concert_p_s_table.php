@@ -15,10 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('place');
             $table->date('date');
-            $table->string('artists');
+            $table->unsignedBigInteger('artist_id'); // Cambia 'artists' por 'artist_id'
             $table->timestamps();
+
+            // Foreign key definittion;)
+
+            $table->foreign('artist_id')->references('id')->on('artists');
         });
     }
+
 
     /**
      * Reverse the migrations.
